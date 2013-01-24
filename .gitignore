@@ -1,6 +1,60 @@
-*.class
 
-# Package Files #
-*.jar
-*.war
-*.ear
+package org.iddi.basics;
+
+import java.io.IOException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+
+public class LeapYear2 
+{
+  static Scanner scan = new Scanner (System.in);
+	
+	public static void main(String[] args) throws IOException 
+	{
+		
+		 int year;
+		 
+		 try
+		 {
+		 
+		 System.out.println ("Please enter a year:");
+		 year = scan.nextInt();
+		 
+		 while (year <= 1582)
+		   {
+		       System.out.println ("That year won't work. Pick a higher year.");
+		       System.out.println ("Please enter a year.");
+		       year = scan.nextInt ();
+		   }
+		 
+		 while (year >= 1582 && year < 9999)
+		 {
+		     if (year % 4 == 0 && year % 100 != 0)
+		     {  
+		    	 System.out.println ("This year is a leap year.");
+		    	 System.out.println ("");
+			     System.out.println ("Please enter a year, (or -1 to quit).");
+		     }
+		     else
+		     { 
+		    	 System.out.println ("This year is not a leap year.");
+		    	 System.out.println ("");
+		    	 System.out.println ("Please enter a year, (or -1 to quit).");
+		    }
+		    year = scan.nextInt ();
+		   
+		    if (year == -1) 
+            {
+		    	 System.out.println("Thank You, Good Bye.");
+		    	 break;
+            }
+		 }    	
+		 } 
+		    catch( InputMismatchException e)
+		        {
+		        System.out.println("Invalid Entry! Try Again."); 
+		        }
+	}
+
+}
